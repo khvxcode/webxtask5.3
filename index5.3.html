@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>VU22CSEN0100110 కాలిక్యులేటర్</title>
+</head>
+<body bgcolor="orange">
+    <h1 style="color:blue;">కాలిక్యులేటర్</h1>
+    <form name="calcForm">
+        <input type="text" name="num1" placeholder="మొదటి సంఖ్యను నమోదు చేయండి">
+        <select name="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" name="num2" placeholder="రెండవ సంఖ్యను నమోదు చేయండి">
+        <button type="button" onclick="calculate()">లెక్కించు</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var form = document.calcForm;
+            var num1 = form.num1.value;
+            var num2 = form.num2.value;
+            var operator = form.operator.value;
+            var result = 0;
+
+            if (operator === "+") {
+                result = Number(num1) + Number(num2);
+            } else if (operator === "-") {
+                result = Number(num1) - Number(num2);
+            } else if (operator === "*") {
+                result = Number(num1) * Number(num2);
+            } else if (operator === "/") {
+                if (num2 != 0) {
+                    result = Number(num1) / Number(num2);
+                } else {
+                    result = "Cannot divide by zero!";
+                }
+            }
+
+	    document.getElementById("result").innerText = "ఫలితం: " + result;
+        }
+    </script>
+</body>
+</html>
+		
